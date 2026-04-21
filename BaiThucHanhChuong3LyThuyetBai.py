@@ -7,8 +7,7 @@ while n > 0:
     n = n // 10
     if (sodau != 6 and sodau != 8):
         solocphat = False
-        break;
-    
+        break;  
 if solocphat == True:
     print ('So loc phat  ')
 else :
