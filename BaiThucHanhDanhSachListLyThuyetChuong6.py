@@ -33,12 +33,18 @@ annofuction = lambda n : SoNguyenTo(n)
 print ('Cac so nguyen to co trong list la : ')
 for num in DanhSach:
     if annofuction(num):
-        print('[', num, ']', end=' ')     
+        print('[', num, ']', end=' ')
+        print("\n ")     
 # b. tinh trung binh cong cac so am, trung binh cac so duong
-TongAm = 0  
+TongAm = 0
 DemAm = 0
 TongDuong = 0
 DemDuong = 0
+def TinhTrungBinh(Tong = 0, Dem = 0):
+    if Dem > 0:
+        return Tong / Dem
+    else:
+        return 0
 for num in DanhSach:
     if num < 0:
         TongAm += num
@@ -46,16 +52,10 @@ for num in DanhSach:
     elif num > 0:
         TongDuong += num
         DemDuong += 1
-if DemAm > 0:
-    TrungBinhAm = TongAm / DemAm
-else:
-    TrungBinhAm = 0
-if DemDuong > 0:
-    TrungBinhDuong = TongDuong / DemDuong
-else:
-    TrungBinhDuong = 0
-print ('Trung binh cong cac so am la : ', TrungBinhAm)
-print ('Trung binh cong cac so duong la : ', TrungBinhDuong)
+Dem = lambda x : x if x > 0 else 0
+print ('Trung binh cong cac so am la : ', TinhTrungBinh(TongAm, DemAm))
+print ('Trung binh cong cac so duong la : ', TinhTrungBinh(TongDuong, DemDuong))
+
 # c. so long nhat va so nho nhat trong list
 if len(DanhSach) > 0:
     SoLonNhat = max(DanhSach)
@@ -65,9 +65,10 @@ if len(DanhSach) > 0:
 else:
     print ('Danh sach rong')
 # d. cho biet cac so list co duoc sap xep theo thu tu tang dan hay chua
-if DanhSach == sorted(DanhSach):
+List = lambda x: x if x > 0 else 0
+if all(List(DanhSach[i]) <= List(DanhSach[i + 1]) for i in range(len(DanhSach) - 1)):
     print ('Cac so trong list da duoc sap xep theo thu tu tang dan')
-else:
-    print ('Cac so trong list chua duoc sap xep theo thu tu tang dan')
+else:    print ('Cac so trong list chua duoc sap xep theo thu tu tang dan')
+    
     
     
