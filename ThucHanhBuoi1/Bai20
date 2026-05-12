@@ -1,5 +1,3 @@
-tien = [1 , 2, 5, 10, 20, 50, 100,200, 500]
-
 def nhaptien():
     tien = int(input("Nhập số tiền khách trả: "))
     
@@ -34,6 +32,4 @@ def main():
             print("Cảm ơn quý khách!")
         else:
           print("cảm ơn quý khách")
-    
-    
 main()
