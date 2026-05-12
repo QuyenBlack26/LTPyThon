@@ -1,0 +1,39 @@
+tien = [1 , 2, 5, 10, 20, 50, 100,200, 500]
+
+def nhaptien():
+    tien = int(input("Nhập số tiền khách trả: "))
+    
+    return tien
+
+def tinhtien(tien): 
+    #Cach 2: Dùng vòng lặp để tính số tờ cho từng mệnh giá
+    menhgia=[500, 200, 100, 50, 20, 10, 5, 2, 1]
+    tong=0
+    for i in menhgia:
+        
+        soto = tien // i
+        tong=tong+soto
+        tien = tien % i
+        if (soto>0):
+         print("Số tờ ", i, ": ", soto)
+    print("tong cong có : ", tong, "tờ")
+    
+    
+def main():    
+    tien = nhaptien()
+    tienphaitra= int(input("Nhập số tiền phải trả: "))
+    #mở rộng
+    if(tien<tienphaitra):
+         tienthieu = tienphaitra - tien
+         print("Số tiền khách thiếu: ", tienthieu)
+    else:
+        if(tien>tienphaitra):
+            tien = tien - tienphaitra
+            tinhtien(tien)
+            input("\nNhấn Enter để hoàn tất...") 
+            print("Cảm ơn quý khách!")
+        else:
+          print("cảm ơn quý khách")
+    
+    
+main()
