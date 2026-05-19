@@ -90,16 +90,21 @@ def XetCacSoKhongPhaiStrobogrammaticvaSoNguyenTo(n):
             print(i, end=' ')
     print()  # In xuống dòng sau mỗi số không phải strobogrammatic và không phải nguyên tố
     
-def DaonguocSo(n):
-    reversed_n = 0
+def XoaySo180Do(n):
+    dao = 0
     while n > 0:
         digit = n % 10
-        reversed_n = reversed_n * 10 + digit
+        if digit == 6:
+            digit = 9
+        elif digit == 9:
+            digit = 6
+        dao = dao * 10 + digit
         n //= 10
-    return reversed_n
+    return dao
+
 def InraSoDaoNguocNguyenTo(n):
     for i in range(2, n + 1):
-        dao = DaonguocSo(i)
+        dao = XoaySo180Do(i)
 
         if XetSoNguyenTo(i) and XetSoNguyenTo(dao) and dao != i:
             print(i, end=' ')
