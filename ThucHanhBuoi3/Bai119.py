@@ -42,6 +42,7 @@ def xettu1denn():
         if XetSoStrobogrammatic(i):
             print(i, end=' ')
     print()  # In xuống dòng sau mỗi số strobogrammatic
+    print()  # In xuống dòng sau mỗi số strobogrammatic
 
 
 def insoStrobogrammaticNguyenTo(n):
@@ -49,6 +50,7 @@ def insoStrobogrammaticNguyenTo(n):
         if  XetSoNguyenTo(i) and XetSoStrobogrammatic(i):
             print(i, end=' ')    
     print()  # In xuống dòng sau mỗi số strobogrammatic nguyên tố
+    print()  # In xuống dòng sau mỗi số strobogrammatic nguyên tố   
 # chạy
 xettu1denn()
 insoStrobogrammaticNguyenTo(1000000)
@@ -77,6 +79,30 @@ def insoStrobogrammaticNguyenTo1(n):
         if  XetSoNguyenTo(i) and XetSoStrobogrammaticC(i):
             print(i, end=' ')    
     print()  # In xuống dòng sau mỗi số strobogrammatic nguyên tố
+    print()  # In xuống dòng sau mỗi số strobogrammatic nguyên tố
     
 xuat2()
 insoStrobogrammaticNguyenTo1(1000000)
+
+def XetCacSoKhongPhaiStrobogrammaticvaSoNguyenTo(n):
+    for i in range(2, n + 1):
+        if not XetSoStrobogrammatic(i) and not XetSoNguyenTo(i):
+            print(i, end=' ')
+    print()  # In xuống dòng sau mỗi số không phải strobogrammatic và không phải nguyên tố
+    
+def DaonguocSo(n):
+    reversed_n = 0
+    while n > 0:
+        digit = n % 10
+        reversed_n = reversed_n * 10 + digit
+        n //= 10
+    return reversed_n
+def InraSoDaoNguocNguyenTo(n):
+    for i in range(2, n + 1):
+        dao = DaonguocSo(i)
+
+        if XetSoNguyenTo(i) and XetSoNguyenTo(dao) and dao != i:
+            print(i, end=' ')
+
+    print()  # In xuống dòng sau mỗi số nguyên tố có số đảo ngược cũng là nguyên tố
+InraSoDaoNguocNguyenTo(1000000)
