@@ -53,5 +53,30 @@ def insoStrobogrammaticNguyenTo(n):
 xettu1denn()
 insoStrobogrammaticNguyenTo(1000000)
 
-    
+### C ####
+def XetSoStrobogrammaticC(n): 
+    digits = set()
+    map = {0, 1, 2, 5, 6, 8, 9}
+    for digit in TachSo(n):
+        if digit not in map:
+            return False
+
+    if n != GopSo(digit for digit in TachSo(n)):
+        return False
+    else:
+        return True
             
+def xuat2():
+    for i in range(1000000):
+        if XetSoStrobogrammaticC(i):
+            print(i, end=' ')
+    print()  # In xuống dòng sau mỗi số strobogrammatic
+
+def insoStrobogrammaticNguyenTo1(n):
+    for i in range(2, n + 1):
+        if  XetSoNguyenTo(i) and XetSoStrobogrammaticC(i):
+            print(i, end=' ')    
+    print()  # In xuống dòng sau mỗi số strobogrammatic nguyên tố
+    
+xuat2()
+insoStrobogrammaticNguyenTo1(1000000)
